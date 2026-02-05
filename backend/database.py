@@ -7,10 +7,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Credenciales
-DB_USER = os.getenv("DB_USER", "root")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "")
-DB_HOST = os.getenv("DB_HOST", "localhost")
-DB_NAME = os.getenv("DB_NAME", "sexshop_quibdo")
+DB_USER = os.getenv("DB_USER", "u659323332_sex")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "Quibdo123*")
+DB_HOST = os.getenv("DB_HOST", "82.197.82.29")
+DB_NAME = os.getenv("DB_NAME", "u659323332_sex")
 
 # La URL de conexión está perfecta
 SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
