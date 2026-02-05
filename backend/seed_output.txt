@@ -1,0 +1,612 @@
+﻿python : Traceback 
+(most recent call 
+last):
+En línea: 1 
+Carácter: 1
++ python seed_db.py 
+2>&1 | Out-File 
+-FilePath 
+seed_output.txt 
+-Encoding ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (Traceba   
+ ck (most recent     
+call last)::Stri    
+ng) [], RemoteEx    
+ception
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\engine\base.
+py", line 1936, in 
+_exec_single_context
+    self.dialect.do_e
+xecutemany(
+    ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\dialects\mys
+ql\mysqldb.py", line 
+196, in 
+do_executemany
+    rowcount = cursor
+.executemany(statemen
+t, parameters)
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\cursors.py", 
+line 182, in 
+executemany
+    return self._do_e
+xecute_many(
+           ~~~~~~~~~~
+~~~~~~~~~~~^
+        q_prefix,
+        ^^^^^^^^^
+    ...<4 lines>...
+        self._get_db(
+).encoding,
+        ^^^^^^^^^^^^^
+^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\cursors.py", 
+line 220, in 
+_do_execute_many
+    rows += 
+self.execute(sql + 
+postfix)
+            ~~~~~~~~~
+~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\cursors.py", 
+line 153, in execute
+    result = 
+self._query(query)
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\cursors.py", 
+line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\connections.py"
+, line 558, in query
+    
+self._affected_rows 
+= self._read_query_re
+sult(unbuffered=unbuf
+fered)
+                     
+     ~~~~~~~~~~~~~~~~
+~~~~~~~^^^^^^^^^^^^^^
+^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\connections.py"
+, line 822, in 
+_read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\connections.py"
+, line 1200, in read
+    first_packet = se
+lf.connection._read_p
+acket()
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\connections.py"
+, line 772, in 
+_read_packet
+    packet.raise_for_
+error()
+    ~~~~~~~~~~~~~~~~~
+~~~~~^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\protocol.py", 
+line 221, in 
+raise_for_error
+    err.raise_mysql_e
+xception(self._data)
+    ~~~~~~~~~~~~~~~~~
+~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\err.py", line 
+143, in 
+raise_mysql_exception
+    raise 
+errorclass(errno, 
+errval)
+pymysql.err.Integrity
+Error: (1062, 
+"Duplicate entry 
+'27-3' for key 
+'PRIMARY'")
+
+The above exception 
+was the direct cause 
+of the following 
+exception:
+
+Traceback (most 
+recent call last):
+  File "C:\Users\Vict
+us\Downloads\lencer-a
+-con-amor-main\backen
+d\seed_db.py", line 
+197, in seed
+    db.commit()
+    ~~~~~~~~~^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\session.
+py", line 2030, in 
+commit
+    trans.commit(_to_
+root=True)
+    ~~~~~~~~~~~~^^^^^
+^^^^^^^^^^
+  File "<string>", 
+line 2, in commit
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\state_ch
+anges.py", line 137, 
+in _go
+    ret_value = 
+fn(self, *arg, **kw)
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\session.
+py", line 1311, in 
+commit
+    
+self._prepare_impl()
+    
+~~~~~~~~~~~~~~~~~~^^
+  File "<string>", 
+line 2, in 
+_prepare_impl
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\state_ch
+anges.py", line 137, 
+in _go
+    ret_value = 
+fn(self, *arg, **kw)
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\session.
+py", line 1286, in 
+_prepare_impl
+    
+self.session.flush()
+    
+~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\session.
+py", line 4331, in 
+flush
+    
+self._flush(objects)
+    
+~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\session.
+py", line 4466, in 
+_flush
+    with 
+util.safe_reraise():
+         
+~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\util\langhel
+pers.py", line 224, 
+in __exit__
+    raise exc_value.w
+ith_traceback(exc_tb)
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\session.
+py", line 4427, in 
+_flush
+    flush_context.exe
+cute()
+    ~~~~~~~~~~~~~~~~~
+~~~~^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\unitofwo
+rk.py", line 466, in 
+execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\unitofwo
+rk.py", line 591, in 
+execute
+    self.dependency_p
+rocessor.process_save
+s(uow, states)
+    ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~^^^^^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\dependen
+cy.py", line 1195, 
+in process_saves
+    self._run_crud(
+    ~~~~~~~~~~~~~~^
+        uowcommit, 
+secondary_insert, 
+secondary_update, 
+secondary_delete
+        ^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^
+    )
+    ^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\orm\dependen
+cy.py", line 1258, 
+in _run_crud
+    connection.execut
+e(statement, 
+secondary_insert)
+    ~~~~~~~~~~~~~~~~~
+~^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\engine\base.
+py", line 1419, in 
+execute
+    return meth(
+        self,
+        
+distilled_parameters,
+        
+execution_options or 
+NO_OPTIONS,
+    )
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\sql\elements
+.py", line 527, in _e
+xecute_on_connection
+    return connection
+._execute_clauseeleme
+nt(
+           ~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~^
+        self, 
+distilled_params, 
+execution_options
+        ^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^
+    )
+    ^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\engine\base.
+py", line 1641, in _e
+xecute_clauseelement
+    ret = self._execu
+te_context(
+        dialect,
+    ...<8 lines>...
+        
+cache_hit=cache_hit,
+    )
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\engine\base.
+py", line 1846, in 
+_execute_context
+    return self._exec
+_single_context(
+           ~~~~~~~~~~
+~~~~~~~~~~~~~~~^
+        dialect, 
+context, statement, 
+parameters
+        ^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^
+    )
+    ^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\engine\base.
+py", line 1986, in 
+_exec_single_context
+    self._handle_dbap
+i_exception(
+    ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~^
+        e, 
+str_statement, effect
+ive_parameters, 
+cursor, context
+        ^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+Seeding categories...
+Seeding colors...
+Seeding products...
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\engine\base.
+py", line 2363, in _h
+andle_dbapi_exception
+    raise sqlalchemy_
+exception.with_traceb
+ack(exc_info[2]) 
+from e
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\engine\base.
+py", line 1936, in 
+_exec_single_context
+    self.dialect.do_e
+xecutemany(
+    ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~^
+        cursor,
+        ^^^^^^^
+    ...<2 lines>...
+        context,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\sq
+lalchemy\dialects\mys
+ql\mysqldb.py", line 
+196, in 
+do_executemany
+    rowcount = cursor
+.executemany(statemen
+t, parameters)
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\cursors.py", 
+line 182, in 
+executemany
+    return self._do_e
+xecute_many(
+           ~~~~~~~~~~
+~~~~~~~~~~~^
+        q_prefix,
+        ^^^^^^^^^
+    ...<4 lines>...
+        self._get_db(
+).encoding,
+        ^^^^^^^^^^^^^
+^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\cursors.py", 
+line 220, in 
+_do_execute_many
+    rows += 
+self.execute(sql + 
+postfix)
+            ~~~~~~~~~
+~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\cursors.py", 
+line 153, in execute
+    result = 
+self._query(query)
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\cursors.py", 
+line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\connections.py"
+, line 558, in query
+    
+self._affected_rows 
+= self._read_query_re
+sult(unbuffered=unbuf
+fered)
+                     
+     ~~~~~~~~~~~~~~~~
+~~~~~~~^^^^^^^^^^^^^^
+^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\connections.py"
+, line 822, in 
+_read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\connections.py"
+, line 1200, in read
+    first_packet = se
+lf.connection._read_p
+acket()
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\connections.py"
+, line 772, in 
+_read_packet
+    packet.raise_for_
+error()
+    ~~~~~~~~~~~~~~~~~
+~~~~~^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\protocol.py", 
+line 221, in 
+raise_for_error
+    err.raise_mysql_e
+xception(self._data)
+    ~~~~~~~~~~~~~~~~~
+~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\Vict
+us\AppData\Local\Prog
+rams\Python\Python313
+\Lib\site-packages\py
+mysql\err.py", line 
+143, in 
+raise_mysql_exception
+    raise 
+errorclass(errno, 
+errval)
+sqlalchemy.exc.Integr
+ityError: (pymysql.er
+r.IntegrityError) 
+(1062, "Duplicate 
+entry '27-3' for key 
+'PRIMARY'")
+[SQL: INSERT INTO 
+product_colors 
+(product_id, 
+color_id) VALUES 
+(%(product_id)s, 
+%(color_id)s)]
+[parameters: 
+[{'product_id': 28, 
+'color_id': 11}, 
+{'product_id': 26, 
+'color_id': 4}, 
+{'product_id': 26, 
+'color_id': 14}, 
+{'product_id': 27, 
+'color_id': 3}, 
+{'product_id': 27, 
+'color_id': 3}, 
+{'product_id': 25, 
+'color_id': 4}, 
+{'product_id': 25, 
+'color_id': 3}]]
+(Background on this 
+error at: https://sql
+alche.me/e/20/gkpj)
