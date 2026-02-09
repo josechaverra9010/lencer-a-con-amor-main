@@ -5,3 +5,4 @@ pymysql
 pydantic
 python-dotenv
 cryptography
+email-validator
