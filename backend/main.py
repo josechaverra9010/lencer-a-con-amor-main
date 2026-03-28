@@ -36,6 +36,11 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/api")
+@app.get("/api/")
+def api_root():
+    return {"status": "ok", "message": "Sexshop Quibdo API is running"}
+
 @app.get("/api/products", response_model=List[schemas.Product])
 def read_products(skip: int = 0, limit: int = 100, category: str = None, db: Session = Depends(get_db)):
     products = crud.get_products(db, skip=skip, limit=limit, category=category)

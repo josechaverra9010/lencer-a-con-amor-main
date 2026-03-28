@@ -2,7 +2,7 @@ import axios from "axios";
 import { Product } from "@/data/products";
 
 const isProd = import.meta.env.PROD;
-const API_URL = import.meta.env.VITE_API_URL || (isProd ? "https://lencer-a-con-amor-main-ooys.vercel.app/api" : "http://localhost:8000/api");
+const API_URL = isProd ? "/api" : (import.meta.env.VITE_API_URL || "http://localhost:8000/api");
 
 export const api = axios.create({
     baseURL: API_URL,
