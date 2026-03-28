@@ -28,9 +28,11 @@ const Footer = () => {
       <div className="container px-4 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="col-span-2">
-            <h2 className="font-serif text-3xl font-semibold mb-4">
-              <span className="text-primary">A</span>nalía <span className="text-primary">B</span>outique
-            </h2>
+            <img 
+              src="/logo.png" 
+              alt="Analia Boutique" 
+              className="h-16 w-auto object-contain mb-4 brightness-0 invert" 
+            />
             <p className="text-muted-foreground text-sm max-w-xs mb-6 leading-relaxed">
               Lencería de lujo diseñada para la mujer moderna.
               Elegancia, comodidad y sofisticación en cada pieza.

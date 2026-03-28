@@ -33,9 +33,13 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
             {/* Sidebar */}
             <aside className="w-64 bg-card border-r border-border flex flex-col sticky top-0 h-screen">
                 <div className="p-6 border-b border-border">
-                    <Link to="/" className="font-serif text-2xl font-semibold flex items-center gap-2">
-                        <span className="text-primary tracking-tighter">AB</span>
-                        <span className="text-sm uppercase tracking-widest font-sans font-normal text-muted-foreground">Admin</span>
+                    <Link to="/" className="flex items-center gap-2">
+                        <img 
+                            src="/logo.png" 
+                            alt="Analia Boutique" 
+                            className="h-10 w-auto object-contain"
+                        />
+                        <span className="text-xs uppercase tracking-widest font-sans font-normal text-muted-foreground border-l border-border pl-2 ml-1">Admin</span>
                     </Link>
                 </div>
 
