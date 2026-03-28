@@ -15,7 +15,7 @@ import ProductDetail from "./pages/ProductDetail";
 import Auth from "./pages/Auth";
 import Profile from "./pages/Profile";
 import Wishlist from "./pages/Wishlist";
-import checkout from "./pages/checkout";
+import Checkout from "./pages/Checkout";
 import TrackOrder from "./pages/TrackOrder";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminOrders from "./pages/admin/Orders";
@@ -46,7 +46,7 @@ const App = () => {
                   <Route path="/auth" element={<Auth />} />
                   <Route path="/perfil" element={<Profile />} />
                   <Route path="/wishlist" element={<Wishlist />} />
-                  <Route path="/checkout" element={<checkout />} />
+                  <Route path="/checkout" element={<Checkout />} />
                   <Route path="/rastrear-pedido" element={<TrackOrder />} />
 
                   {/* Admin Routes */}
