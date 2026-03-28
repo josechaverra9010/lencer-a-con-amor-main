@@ -1,6 +1,7 @@
 import heroImage from "@/assets/hero-lingerie.jpg";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -31,12 +32,16 @@ const Hero = () => {
             tu belleza natural con la más alta calidad y sofisticación.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-primary hover:bg-rose-dark text-primary-foreground px-8 group">
-              Explorar Colección
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Button asChild size="lg" className="bg-primary hover:bg-rose-dark text-primary-foreground px-8 group">
+              <Link to="/productos">
+                Explorar Colección
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
-            <Button size="lg" variant="outline" className="border-foreground/30 text-foreground hover:bg-foreground/10 hover:border-foreground/50">
-              Ver Novedades
+            <Button asChild size="lg" variant="outline" className="border-foreground/30 text-foreground hover:bg-foreground/10 hover:border-foreground/50">
+              <Link to="/productos?filter=new">
+                Ver Novedades
+              </Link>
             </Button>
           </div>
         </div>
