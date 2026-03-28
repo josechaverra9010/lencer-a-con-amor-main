@@ -29,7 +29,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="col-span-2">
             <h2 className="font-serif text-3xl font-semibold mb-4">
-              <span className="text-primary">S</span>exshop <span className="text-primary">Q</span>uibdo
+              <span className="text-primary">A</span>nalía <span className="text-primary">B</span>outique
             </h2>
             <p className="text-muted-foreground text-sm max-w-xs mb-6 leading-relaxed">
               Lencería de lujo diseñada para la mujer moderna.

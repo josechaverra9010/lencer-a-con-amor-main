@@ -34,7 +34,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
             <aside className="w-64 bg-card border-r border-border flex flex-col sticky top-0 h-screen">
                 <div className="p-6 border-b border-border">
                     <Link to="/" className="font-serif text-2xl font-semibold flex items-center gap-2">
-                        <span className="text-primary tracking-tighter">SQ</span>
+                        <span className="text-primary tracking-tighter">AB</span>
                         <span className="text-sm uppercase tracking-widest font-sans font-normal text-muted-foreground">Admin</span>
                     </Link>
                 </div>

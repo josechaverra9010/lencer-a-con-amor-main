@@ -37,7 +37,7 @@ const Header = () => {
             <div className="flex-1 lg:flex-none text-center lg:text-left">
               <Link to="/" className="inline-block">
                 <h1 className="font-serif text-2xl lg:text-3xl font-semibold tracking-wide text-foreground">
-                  <span className="text-primary">S</span>exshop <span className="text-primary">Q</span>uibdo
+                  <span className="text-primary">A</span>nalía <span className="text-primary">B</span>outique
                 </h1>
               </Link>
             </div>

@@ -29,6 +29,12 @@ def update_product(db: Session, product_id: int, product: schemas.ProductCreate)
 def delete_product(db: Session, product_id: int):
     db_product = get_product(db, product_id)
     if db_product:
+        # Set product_id to null in order_items instead of deleting them or failing
+        db.query(models.OrderItem).filter(models.OrderItem.product_id == product_id).update({models.OrderItem.product_id: None})
+        
+        # Remove from many-to-many table (product_colors)
+        db_product.colors = []
+        
         db.delete(db_product)
         db.commit()
         return True
@@ -112,13 +118,6 @@ def update_order_status(db: Session, order_id: int, status: str):
         db.commit()
         db.refresh(db_order)
     return db_order
-
-def create_color(db: Session, color: schemas.CategoryCreate):
-    db_color = models.Color(name=color.name, value=color.value)
-    db.add(db_color)
-    db.commit()
-    db.refresh(db_color)
-    return db_color
 
 def record_visit(db: Session, ip_address: str):
     today = datetime.now().strftime("%Y-%m-%d")

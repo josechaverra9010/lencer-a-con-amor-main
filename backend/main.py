@@ -9,7 +9,7 @@ from database import SessionLocal, engine
 # Create tables
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Sexshop Quibdo API")
+app = FastAPI(title="Analia Boutique API")
 
 # Configure CORS
 app.add_middleware(
@@ -39,7 +39,7 @@ def get_db():
 @app.get("/api")
 @app.get("/api/")
 def api_root():
-    return {"status": "ok", "message": "Sexshop Quibdo API is running"}
+    return {"status": "ok", "message": "Analia Boutique API is running"}
 
 @app.get("/api/products", response_model=List[schemas.Product])
 def read_products(skip: int = 0, limit: int = 100, category: str = None, db: Session = Depends(get_db)):
@@ -111,6 +111,10 @@ async def upload_image(request: Request, file: UploadFile = File(...)):
         buffer.write(content)
         
     base_url = str(request.base_url).rstrip('/')
+    # If in Vercel or production, ensure https
+    if os.getenv("VERCEL") or not base_url.startswith("http://localhost"):
+        base_url = base_url.replace("http://", "https://")
+    
     return {"url": f"{base_url}/uploads/{unique_filename}"}
 
 @app.post("/api/orders", response_model=schemas.Order)
