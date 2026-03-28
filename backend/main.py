@@ -68,13 +68,23 @@ def record_visit(request: Request, db: Session = Depends(get_db)):
 
 @app.post("/api/upload")
 async def upload_image(request: Request, file: UploadFile = File(...)):
+    # 1. Validate file type
+    if not file.content_type.startswith('image/'):
+        raise HTTPException(status_code=400, detail="Only images allowed")
+    
+    # 2. Validate file size (e.g., 5MB limit)
+    MAX_SIZE = 5 * 1024 * 1024 # 5MB
+    content = await file.read()
+    if len(content) > MAX_SIZE:
+        raise HTTPException(status_code=400, detail="File too large. Maximum size is 5MB")
+    
     # Generate unique filename
     file_extension = os.path.splitext(file.filename)[1]
     unique_filename = f"{uuid.uuid4()}{file_extension}"
     file_path = os.path.join(UPLOAD_DIR, unique_filename)
     
+    # Reset file pointer after reading for size validation
     with open(file_path, "wb") as buffer:
-        content = await file.read()
         buffer.write(content)
         
     base_url = str(request.base_url).rstrip('/')
