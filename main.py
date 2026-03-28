@@ -67,7 +67,7 @@ def record_visit(request: Request, db: Session = Depends(get_db)):
     return {"status": "ok"}
 
 @app.post("/api/upload")
-async def upload_image(request: Request, file: UploadFile = File(...)):
+async def upload_image(file: UploadFile = File(...)):
     # Generate unique filename
     file_extension = os.path.splitext(file.filename)[1]
     unique_filename = f"{uuid.uuid4()}{file_extension}"
@@ -77,8 +77,7 @@ async def upload_image(request: Request, file: UploadFile = File(...)):
         content = await file.read()
         buffer.write(content)
         
-    base_url = str(request.base_url).rstrip('/')
-    return {"url": f"{base_url}/uploads/{unique_filename}"}
+    return {"url": f"http://localhost:8000/uploads/{unique_filename}"}
 
 @app.post("/api/orders", response_model=schemas.Order)
 def create_order(order: schemas.OrderCreate, db: Session = Depends(get_db)):

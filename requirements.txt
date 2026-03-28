@@ -5,6 +5,4 @@ pymysql
 pydantic
 python-dotenv
 cryptography
-pydantic[email]
-email-validator
 python-multipart
