@@ -6,16 +6,28 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Credenciales
+# Credenciales con valores por defecto para producción
 DB_USER = os.getenv("DB_USER", "u659323332_sex")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "Quibdo123*")
 DB_HOST = os.getenv("DB_HOST", "82.197.82.29")
 DB_NAME = os.getenv("DB_NAME", "u659323332_sex")
 
-# La URL de conexión está perfecta
+# Si estamos en Vercel o no tenemos host local, forzar la IP externa
+if os.getenv("VERCEL") or DB_HOST == "localhost":
+    DB_HOST = os.getenv("DB_HOST_PROD", "82.197.82.29")
+    DB_USER = os.getenv("DB_USER_PROD", "u659323332_sex")
+    DB_PASSWORD = os.getenv("DB_PASSWORD_PROD", "Quibdo123*")
+    DB_NAME = os.getenv("DB_NAME_PROD", "u659323332_sex")
+
+# La URL de conexión
 SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
 
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
+# Para MySQL en producción, añadimos pool_pre_ping para evitar conexiones muertas
+engine = create_engine(
+    SQLALCHEMY_DATABASE_URL,
+    pool_pre_ping=True,
+    pool_recycle=3600
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
