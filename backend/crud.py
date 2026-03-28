@@ -182,6 +182,26 @@ def create_category(db: Session, category: schemas.CategoryCreate):
     db.refresh(db_category)
     return db_category
 
+def update_category(db: Session, category_id: int, category: schemas.CategoryCreate):
+    db_category = db.query(models.Category).filter(models.Category.id == category_id).first()
+    if db_category:
+        db_category.name = category.name
+        db.commit()
+        db.refresh(db_category)
+    return db_category
+
+def delete_category(db: Session, category_id: int):
+    db_category = db.query(models.Category).filter(models.Category.id == category_id).first()
+    if db_category:
+        # Check if there are products using this category
+        products_count = db.query(models.Product).filter(models.Product.category_id == category_id).count()
+        if products_count > 0:
+            return False, "Cannot delete category with associated products"
+        db.delete(db_category)
+        db.commit()
+        return True, "Category deleted successfully"
+    return False, "Category not found"
+
 def get_colors(db: Session):
     return db.query(models.Color).all()
 

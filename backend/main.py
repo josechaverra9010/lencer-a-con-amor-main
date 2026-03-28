@@ -61,6 +61,24 @@ def create_product(product: schemas.ProductCreate, db: Session = Depends(get_db)
 def read_categories(db: Session = Depends(get_db)):
     return crud.get_categories(db)
 
+@app.post("/api/admin/categories", response_model=schemas.Category)
+def create_category(category: schemas.CategoryCreate, db: Session = Depends(get_db)):
+    return crud.create_category(db=db, category=category)
+
+@app.put("/api/admin/categories/{category_id}", response_model=schemas.Category)
+def update_category(category_id: int, category: schemas.CategoryCreate, db: Session = Depends(get_db)):
+    db_category = crud.update_category(db, category_id=category_id, category=category)
+    if not db_category:
+        raise HTTPException(status_code=404, detail="Category not found")
+    return db_category
+
+@app.delete("/api/admin/categories/{category_id}")
+def delete_category(category_id: int, db: Session = Depends(get_db)):
+    success, message = crud.delete_category(db, category_id=category_id)
+    if not success:
+        raise HTTPException(status_code=400, detail=message)
+    return {"message": message}
+
 @app.get("/api/colors", response_model=List[schemas.Color])
 def read_colors(db: Session = Depends(get_db)):
     return crud.get_colors(db)

@@ -36,6 +36,22 @@ export const getCategories = async () => {
     const response = await api.get("categories");
     return response.data;
 };
+
+export const createCategory = async (categoryData: { name: string }) => {
+    const response = await api.post("admin/categories", categoryData);
+    return response.data;
+};
+
+export const updateCategory = async (categoryId: number, categoryData: { name: string }) => {
+    const response = await api.put(`admin/categories/${categoryId}`, categoryData);
+    return response.data;
+};
+
+export const deleteCategory = async (categoryId: number) => {
+    const response = await api.delete(`admin/categories/${categoryId}`);
+    return response.data;
+};
+
 export const getColors = async () => {
     const response = await api.get("colors");
     return response.data;

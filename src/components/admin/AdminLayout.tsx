@@ -7,7 +7,8 @@ import {
     Users,
     Settings,
     LogOut,
-    ChevronRight
+    ChevronRight,
+    Tag
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -21,6 +22,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     const menuItems = [
         { name: "Dashboard", href: "/admin", icon: <LayoutDashboard size={20} /> },
         { name: "Productos", href: "/admin/productos", icon: <Package size={20} /> },
+        { name: "Categorías", href: "/admin/categorias", icon: <Tag size={20} /> },
         { name: "Pedidos", href: "/admin/pedidos", icon: <ShoppingBag size={20} /> },
         { name: "Usuarios", href: "/admin/usuarios", icon: <Users size={20} /> },
         { name: "Configuración", href: "#", icon: <Settings size={20} /> },
